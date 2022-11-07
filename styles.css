@@ -1,9 +1,11 @@
-:root {
-}
-
 *, *::before, *::after {
     margin: 0;
     padding: 0;
+}
+
+#title {
+    text-align: center;
+    margin-bottom: 5rem;
 }
 
 #container {
@@ -15,12 +17,16 @@
     
 }
 
-#container div:hover {
-    background-color: black;
-    cursor:crosshair;
+.hover {
+    background-color: red;
+}
+
+.hoverExit {
+    animation: trail 1s 1 linear;
 }
 
 @keyframes trail {
-    99% {
+    100% {
+        background: white;
     }
 }
