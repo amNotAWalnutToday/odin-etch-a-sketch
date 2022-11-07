@@ -1,11 +1,23 @@
+:root {
+    font-family:monospace
+}
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
 }
 
+body {
+    background: rgb(116, 110, 62);
+}
+
 #title {
     text-align: center;
     margin-bottom: 5rem;
+    font-size: 64px;
+    color: yellow;
+    -webkit-text-stroke: 2px black; 
+    text-shadow: 5px 5px 25px yellow;
 }
 
 #container {
@@ -15,10 +27,12 @@
     flex-wrap: wrap;
     margin: 0 auto;
     box-shadow: 0px 0px 5px 5px;
+    background-color: white;
 }
 
 .hover {
     background-color: black;
+    cursor: crosshair;
 }
 
 .hoverExit {
@@ -26,7 +40,19 @@
 }
 
 #generate {
-    margin: 2rem 45vw;
+    margin: 5rem 45vw;
+    height: 100px;
+    width: 150px;
+    cursor: pointer;
+    background-color: white;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 60%;
+}
+
+#generate:hover {
+    opacity: 100%;
+    box-shadow: 0px 0px 10px 10px black;
 }
 
 @keyframes trail {
