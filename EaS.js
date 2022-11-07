@@ -2,9 +2,10 @@
 const container = document.querySelector('#container')
 
 function createGrid(squares) {
+if (squares >= Math.pow(100,2)) return alert('ERROR');
+
 const lines = Math.sqrt(squares);
 const squareSize = container.offsetWidth / lines;
-    console.log(squareSize);
     for(let i = squares; i > 0; i--){
         const square = document.createElement('div');
         square.style.cssText = `border:1px solid black; height:${squareSize - 2}px; width:${squareSize - 2}px;`;
@@ -25,16 +26,16 @@ function setTrail() {
 }
 
 function hoverEnter(e){
-    this.setAttribute('class','hover');
+    this.setAttribute('class','hover square');
 }
 
 function hoverLeave(e){
-    this.setAttribute('class','hoverExit hover');
+    this.setAttribute('class','hoverExit hover square');
     this.addEventListener('animationend', hoverTrail);
 }
 
 function hoverTrail(e) {
-    this.setAttribute('class','none');
+    this.setAttribute('class','square');
 }
 
 //generate new grid
@@ -43,11 +44,13 @@ button.addEventListener('click', generateGrid);
 
 function clearGrid(){
     const gridSquare = document.querySelectorAll('.square');
-    gridSquare.forEach(square => container.removeChild(square));
+    gridSquare.forEach(square => {
+        container.removeChild(square)
+    });
 }
 
 function generateGrid(e) {
     clearGrid();
-    createGrid(Math.pow(prompt('Enter amount of grid lines'),2));
+    createGrid(Math.pow(prompt('Enter amount of grid lines(less than 100)'),2));
     setTrail();
 }

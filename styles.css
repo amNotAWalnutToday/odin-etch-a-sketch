@@ -18,11 +18,15 @@
 }
 
 .hover {
-    background-color: red;
+    background-color: black;
 }
 
 .hoverExit {
-    animation: trail 1s 1 linear;
+    animation: trail 2s 1 linear;
+}
+
+#generate {
+    margin: 2rem 45vw;
 }
 
 @keyframes trail {
