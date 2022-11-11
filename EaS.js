@@ -76,6 +76,7 @@ randomGrid.addEventListener('click',randomSize)
 
 function randomSize() {
     gridSize = Math.floor(Math.random()*64);
+    range.value = gridSize;
     randomClick = true;
     generateGrid();
 }
