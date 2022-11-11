@@ -26,16 +26,17 @@ function setTrail() {
 }
 
 function hoverEnter(e){
-    this.setAttribute('class','hover square');
+    this.style.backgroundColor = colorType;
 }
 
 function hoverLeave(e){
-    this.setAttribute('class','hoverExit hover square');
+    this.setAttribute('class','hoverExit square');
     this.addEventListener('animationend', hoverTrail);
 }
 
 function hoverTrail(e) {
     this.setAttribute('class','square');
+    this.style.backgroundColor = 'white';
 }
 
 //generate new grid
@@ -62,4 +63,20 @@ function generateGrid(e) {
 function rangeSize() {
     const rangeSize = document.querySelector('#rangeSize')
     rangeSize.textContent = gridSize + ' X ' + gridSize;
+}
+
+//Choose color
+let colorType = '#000000';
+
+const colorPicker = document.querySelector('#colorChoose')
+colorPicker.addEventListener('mouseleave', chooseColor)
+
+function chooseColor(e){
+    colorType = this.value;
+    colorValue();
+}
+
+function colorValue() {
+    const cValue = document.querySelector('#colorValue')
+    cValue.textContent = colorType;
 }

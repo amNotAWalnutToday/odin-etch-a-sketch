@@ -9,6 +9,7 @@
 
 body {
     background: rgb(116, 110, 62);
+    overflow:hidden;
 }
 
 #title {
@@ -41,15 +42,21 @@ body {
 
 .settings {
     display:flex;
-    flex-direction: column;
-    align-items: center;
-    width: 10rem;
+    justify-content: space-around;
+    width: 432px;
     height: 10rem;
     gap: 20px;
     margin: 5rem auto;
 }
 
-#range, #rangeSize {
+.settings>div{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#range, #rangeSize, #colorValue, #colorChoose, legend {
     cursor: grab;
     accent-color: yellow;
     outline:2px solid gold;
@@ -58,13 +65,13 @@ body {
     opacity: 80%;
 }
 
-#range:hover {
+#range:hover, #colorChoose:hover {
     opacity: 100%;
     box-shadow: 0px 0px 10px 10px black;
     accent-color: gold;
 }
 
-#rangeSize {
+#rangeSize, #colorValue, legend {
     width: 8rem;
     cursor: default;
     font-size: 24px;
@@ -73,6 +80,16 @@ body {
     text-align: center;
     color: yellow;
     -webkit-text-stroke: 1.3px black;
+}
+
+#colorChoose {
+    height: 15px;
+    width: 9.75rem;
+}
+
+legend {
+    font-size: 19px;
+    -webkit-text-stroke:0.3px black;
 }
 
 @keyframes trail {
