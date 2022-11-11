@@ -18,6 +18,7 @@ setTrail();
 
 
 //create the trail
+let random = false;
 
 function setTrail() {
     const gridSquare = document.querySelectorAll('.square');
@@ -26,7 +27,8 @@ function setTrail() {
 }
 
 function hoverEnter(e){
-    this.style.backgroundColor = colorType;
+    if (random === true) randomColor();
+    this.style.backgroundColor = colorType
 }
 
 function hoverLeave(e){
@@ -66,10 +68,11 @@ function rangeSize() {
 }
 
 //Choose color
+//specific color
 let colorType = '#000000';
 
 const colorPicker = document.querySelector('#colorChoose')
-colorPicker.addEventListener('mouseleave', chooseColor)
+colorPicker.addEventListener('change', chooseColor)
 
 function chooseColor(e){
     colorType = this.value;
@@ -79,4 +82,38 @@ function chooseColor(e){
 function colorValue() {
     const cValue = document.querySelector('#colorValue')
     cValue.textContent = colorType;
+}
+//random color
+const rainbowColor = document.querySelector('#rainbow')
+rainbowColor.addEventListener('click',setRandom)
+
+function setRandom(e) {
+    !random 
+        ?random = true
+        :random = false;
+}
+
+function randomColor () {
+    let colorValArr = [];
+    for(let i = 6; i > 0; i--){
+        let randomNum = Math.floor(Math.random()*15)
+        switch(randomNum){
+          case 10:
+            randomNum = 'A';
+          case 11:
+            randomNum = 'B';
+          case 12:
+            randomNum = 'C';
+          case 13: 
+            randomNum = 'D';
+          case 14:
+            randomNum = 'E';
+          case 15:
+            randomNum = 'F';
+        }
+        colorValArr.push(randomNum);
+    }
+    colorType = '#' + colorValArr.join("");
+
+    colorValue();
 }

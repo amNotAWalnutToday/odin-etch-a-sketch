@@ -44,7 +44,7 @@ body {
     display:flex;
     justify-content: space-around;
     width: 432px;
-    height: 10rem;
+    height: 15rem;
     gap: 20px;
     margin: 5rem auto;
 }
@@ -56,7 +56,7 @@ body {
     gap: 20px;
 }
 
-#range, #rangeSize, #colorValue, #colorChoose, legend {
+#range, #rangeSize, #colorValue, #colorChoose, legend, #rainbow {
     cursor: grab;
     accent-color: yellow;
     outline:2px solid gold;
@@ -65,7 +65,7 @@ body {
     opacity: 80%;
 }
 
-#range:hover, #colorChoose:hover {
+#range:hover, #colorChoose:hover, #rainbow:hover {
     opacity: 100%;
     box-shadow: 0px 0px 10px 10px black;
     accent-color: gold;
@@ -92,8 +92,56 @@ legend {
     -webkit-text-stroke:0.3px black;
 }
 
+#rainbow {
+    width: 50px;
+    height: 50px;
+    background: repeating-linear-gradient(red,orange,yellow,green,blue,indigo,violet);
+    cursor: pointer;
+}
+
+#rainbow:hover {
+    animation: rainbow 1s infinite linear;
+    transition: 0.3ms ease;
+}
+
 @keyframes trail {
     100% {
         background: white;
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background: linear-gradient(violet,red,orange,yellow,green,blue,indigo);
+    }
+    10% {
+        background: linear-gradient(indigo,violet,red,orange,yellow,green,blue);
+    }
+    20% {
+        background: linear-gradient(blue,indigo,violet,red,orange,yellow,green);
+    }
+    30% {
+        background: linear-gradient(green,blue,indigo,violet,red,orange,yellow);
+    }
+    40% {
+        background: linear-gradient(yellow,green,blue,indigo,violet,red,orange);
+    }
+    50% {
+        background: linear-gradient(orange,yellow,green,blue,indigo,violet,red);
+    }
+    60% {
+        background: linear-gradient(red,violet,indigo,blue,green,yellow,orange);
+    }
+    70% {
+        background: linear-gradient(orange,red,violet,indigo,blue,green,yellow);
+    }
+    80% {
+        background: linear-gradient(yellow,orange,red,violet,indigo,blue,green);
+    }
+    900% {
+        background: linear-gradient(green, yellow, orange, red, violet, indigo, blue);
+    }
+    100% {
+        background: linear-gradient(blue,green,yellow,orange,red,violet,indigo);
     }
 }
