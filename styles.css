@@ -56,7 +56,7 @@ body {
     gap: 20px;
 }
 
-#range, #rangeSize, #colorValue, #colorChoose, legend, #rainbow {
+#range, #rangeSize, #colorValue, #colorChoose, legend, #rainbow, #random-grid {
     cursor: grab;
     accent-color: yellow;
     outline:2px solid gold;
@@ -65,13 +65,13 @@ body {
     opacity: 80%;
 }
 
-#range:hover, #colorChoose:hover, #rainbow:hover {
+#range:hover, #colorChoose:hover, #rainbow:hover, #random-grid:hover {
     opacity: 100%;
     box-shadow: 0px 0px 10px 10px black;
     accent-color: gold;
 }
 
-#rangeSize, #colorValue, legend {
+#rangeSize, #colorValue, legend, #random-grid {
     width: 8rem;
     cursor: default;
     font-size: 24px;
@@ -92,7 +92,7 @@ legend {
     -webkit-text-stroke:0.3px black;
 }
 
-#rainbow {
+#rainbow, #random-grid {
     width: 50px;
     height: 50px;
     background: repeating-linear-gradient(red,orange,yellow,green,blue,indigo,violet);
@@ -103,6 +103,16 @@ legend {
     animation: rainbow 1s infinite linear;
     transition: 0.3ms ease;
 }
+
+#random-grid {
+    background: white;
+}
+
+#random-grid:hover {
+    text-shadow: 0px 0px 10px black;
+    animation: random-pulse 0.3s infinite linear alternate;
+}
+
 
 @keyframes trail {
     100% {
@@ -143,5 +153,16 @@ legend {
     }
     100% {
         background: linear-gradient(blue,green,yellow,orange,red,violet,indigo);
+    }
+}
+
+@keyframes random-pulse {
+    from {
+        font-size: 32px;
+        transform: scale(1.05) rotate(-15deg);
+    }
+    to {
+        font-size: 40px;
+        transform: scale(1.1) rotate(15deg);
     }
 }

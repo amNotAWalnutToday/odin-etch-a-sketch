@@ -43,6 +43,7 @@ function hoverTrail(e) {
 
 //generate new grid
 let gridSize = 16;
+let randomClick = false;
 
 const range = document.querySelector('#range')
 range.addEventListener('click', generateGrid)
@@ -54,17 +55,29 @@ function clearGrid(){
     });
 }
 
+//specific size
 function generateGrid(e) {
     clearGrid();
-    createGrid(Math.pow(this.value,2));
+    if(!randomClick) gridSize = this.value
+    createGrid(Math.pow(gridSize,2));
     setTrail();
-    gridSize = this.value
     rangeSize();
+    randomClick = false;
 }
 
 function rangeSize() {
     const rangeSize = document.querySelector('#rangeSize')
     rangeSize.textContent = gridSize + ' X ' + gridSize;
+}
+
+//random size
+const randomGrid = document.querySelector('#random-grid')
+randomGrid.addEventListener('click',randomSize)
+
+function randomSize() {
+    gridSize = Math.floor(Math.random()*64);
+    randomClick = true;
+    generateGrid();
 }
 
 //Choose color
