@@ -1,4 +1,4 @@
-//creating the grid
+//create the grid
 const container = document.querySelector('#container')
 
 function createGrid(squares) {
@@ -17,7 +17,7 @@ createGrid(Math.pow(16,2));
 setTrail();
 
 
-//creating the trail
+//create the trail
 
 function setTrail() {
     const gridSquare = document.querySelectorAll('.square');
@@ -39,8 +39,10 @@ function hoverTrail(e) {
 }
 
 //generate new grid
-const button = document.querySelector('#generate')
-button.addEventListener('click', generateGrid);
+let gridSize = 16;
+
+const range = document.querySelector('#range')
+range.addEventListener('click', generateGrid)
 
 function clearGrid(){
     const gridSquare = document.querySelectorAll('.square');
@@ -51,6 +53,13 @@ function clearGrid(){
 
 function generateGrid(e) {
     clearGrid();
-    createGrid(Math.pow(prompt('Enter amount of grid lines(less than 100)'),2));
+    createGrid(Math.pow(this.value,2));
     setTrail();
+    gridSize = this.value
+    rangeSize();
+}
+
+function rangeSize() {
+    const rangeSize = document.querySelector('#rangeSize')
+    rangeSize.textContent = gridSize + ' X ' + gridSize;
 }
